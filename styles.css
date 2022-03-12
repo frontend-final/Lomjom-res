@@ -7,45 +7,6 @@ body{
   
 }
 
-img{
-width: 1000px;
-flex: 0 0 150px;
-  /* border-radius: 50% */
-}
-
-.box{
-  position: relative;
-  bottom: 50%;
-  top: 50%;
-  left: 15%;
-  /* transform: translate(-50%,-50%); */
-  width: 70%;
-  padding: 200px;
-  box-sizing: border-box;
-  background: white;
-  border-radius: 4px;    
-  box-shadow: 0 5px 15px rgba(0,0,0,.5);
-  display: flex;
-  margin-top: 75px;
-}
-.box .imgBx{
-  width: 50px;
-  height: 50px;
-  text-align: left;
-} */
-.box .imgBx img{
-  height: 64px;
-  width: auto;
- 
-}
-.box .content{
-  padding-left: 100px;
-}
-.box .content h1{
-  margin: 0;
-  padding-left: 0;
-  color: #000;
-
 /* Style The Dropdown Button */
 .dropbtn {
   background-color:  #6A7A69;  
