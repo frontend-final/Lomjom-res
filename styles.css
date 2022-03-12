@@ -3,54 +3,13 @@ body{
   padding: 0;
   font-family: "Montserrat", sans-serif;
   text-align: left;
-  background: rgb(67, 109, 63);  
+  background: #6A7A69;  
   
 }
-img{
-width: 1000px;
-flex: 0 0 150px;
-  /* border-radius: 50% */
-}
 
-.box{
-  position: relative;
-  bottom: 50%;
-  top: 50%;
-  left: 15%;
-  /* transform: translate(-50%,-50%); */
-  width: 70%;
-  padding: 200px;
-  box-sizing: border-box;
-  background: white;
-  border-radius: 4px;    
-  box-shadow: 0 5px 15px rgba(0,0,0,.5);
-  display: flex;
-}
-.box .imgBx{
-  width: 150px;
-  flex: 0 0 150px;
-} */
-.box .imgBx img{
-  max-width: 100%;
-}
-.box .content{
-  padding-left: 100px;
-}
-.box .content h1{
-  margin: 0;
-  padding-left: 0;
-  color: #000;
-
-}
-.box .content h2 {
-   margin: 0;
-  padding-left: 0;
-  color: #000;
-  font-size: 22px;
-}
 /* Style The Dropdown Button */
 .dropbtn {
-  background-color:  rgb(67, 109, 63);  
+  background-color:  #6A7A69;  
   ;
   color: white;
   padding: 16px;
@@ -101,7 +60,7 @@ flex: 0 0 150px;
 /* Style the navbar */
 .topnav {
   overflow: hidden;
-  background-color: #e9e9e9;
+  background-color: #6A7A69;
 }
 
 /* Navbar links */
@@ -172,4 +131,35 @@ flex: 0 0 150px;
   .topnav input[type=text] {
     border: 1px solid #ccc;
   }
+}
+#qualification img{
+  width: 500px;
+}
+#qualification .container-fluid{
+  background-color: white;
+  padding:  3% 15% 7%;
+  
+}
+#qualification .container-fluid h2{
+
+ padding:  3% 15% 7%;
+ font-weight: 900;
+ font-size: 3.5rem;
+ line-height: 1.5;
+ color: #6A7A69;
+ text-align: center;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+* {box-sizing:border-box}
+
+#title a{
+  color: white;
 }
