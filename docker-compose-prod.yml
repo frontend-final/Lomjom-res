@@ -3,4 +3,4 @@ services:
   project:
     image: jet25/project1:latest
     ports:
-      - "8116:80"
+      - "8120:80"
