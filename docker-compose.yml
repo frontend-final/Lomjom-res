@@ -1,0 +1,6 @@
+version: '3.3'
+services:
+  project:
+    image: jet25/project:latest
+    ports:
+      - "8081:3000"
