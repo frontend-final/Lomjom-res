@@ -1,14 +1,5 @@
-FROM node:12.18.1
+From nginx:latest
 
-WORKDIR /app/
+COPY ./html /usr/share/nginx/html 
 
-COPY package*.json /app/
-
-RUN npm install 
-
-COPY . .
-
-EXPOSE 3000
-
-CMD [ "node", "store.js" ]
-
+EXPOSE 80
