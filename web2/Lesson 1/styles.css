@@ -342,7 +342,7 @@ html, body {
 
 .btn-primary:hover {
     color: #ffffff;
-    background-color: #6a7a69;
+    background-color: #000000;
 }
 
 .btn-primary2 {
@@ -669,4 +669,15 @@ h2.modal-title{
   
   .login input[type="submit"]:focus {
     border-color: rgb(37, 37, 37);
+  }
+
+  .w3-button{
+    color: white;
+  }
+  .w3-padding-16{
+      color: white;
+      background-color: #6A7A69;
+  }
+  .w3-left{
+      color: white;
   }
