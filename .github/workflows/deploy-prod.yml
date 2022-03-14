@@ -39,7 +39,7 @@ jobs:
         name: Prepare docker-compose run
         run: |
               mkdir pro1
-              cp docker-compose.yml pro1/docker-compose.yml
+              cp docker-compose-prod.yml pro1/docker-compose.yml
               cd pro1
               docker-compose -H ${{secrets.HOST_SERVER}} down
               docker-compose -H ${{secrets.HOST_SERVER}} pull
