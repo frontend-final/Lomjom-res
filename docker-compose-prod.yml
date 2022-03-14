@@ -1,6 +1,6 @@
 version: '3.3'
 services:
   project:
-    image: jet25/project:latest
+    image: jet25/project1:latest
     ports:
       - "8116:80"
