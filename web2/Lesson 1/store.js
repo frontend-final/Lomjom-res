@@ -102,172 +102,172 @@ function updateCartTotal() {
     document.getElementsByClassName('cart-total-price')[0].innerText = total + ' Bath'
 }
 
-const express = require("express");
-const bodyParser = require("body-parser");
-const app = express();
-const ejs = require("ejs");
-var _ = require('lodash');
-const { MongoClient } = require("mongodb");
-const console = require("console");
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
-app.use(express.static("public"));
-app.use(express.static(__dirname + './public/script.js'));
-const client = new MongoClient('mongodb+srv://BLT:Milk%40081@restaurant.ftxwd.mongodb.net/Restaurant?retryWrites=true&w=majority');
-var loggedIn = {};
-var orderNo = 0;
+// const express = require("express");
+// const bodyParser = require("body-parser");
+// const app = express();
+// const ejs = require("ejs");
+// var _ = require('lodash');
+// const { MongoClient } = require("mongodb");
+// const console = require("console");
+// app.set('view engine', 'ejs');
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json())
+// app.use(express.static("public"));
+// app.use(express.static(__dirname + './public/script.js'));
+// const client = new MongoClient('mongodb+srv://BLT:Milk%40081@restaurant.ftxwd.mongodb.net/Restaurant?retryWrites=true&w=majority');
+// var loggedIn = {};
+// var orderNo = 0;
 
-app.get("/", async function (req, res) {
-    await client.connect()
-    const list = [];
-    try {
-        const db = client.db('Restaurant').collection('Order');
-        const data = await db.find().forEach(function (obj) {
-            list.push(obj);
-        })
-        list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
-        orderNo = list[0].order;
-    } catch (err) {
-        orderNo = 0;
-    }
-    res.render('list.ejs', { orderList: list });
-})
+// app.get("/", async function (req, res) {
+//     await client.connect()
+//     const list = [];
+//     try {
+//         const db = client.db('Restaurant').collection('Order');
+//         const data = await db.find().forEach(function (obj) {
+//             list.push(obj);
+//         })
+//         list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
+//         orderNo = list[0].order;
+//     } catch (err) {
+//         orderNo = 0;
+//     }
+//     res.render('list.ejs', { orderList: list });
+// })
 
-app.get("/kitchen", async function (req, res) {
-    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    const list = [];
-    try {
-        const db = client.db('Restaurant').collection('Order');
-        const data = await db.find( /*{ "pen": "paper" } simulate 0 result*/).forEach(function (obj) {
-            list.push(obj);
-        })
-        list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
-        orderNo = list[0].order;
-    } catch (err) {
-        orderNo = -1;
-    }
-    res.render('kitchen.ejs', { isLoggedIn: Object.keys(loggedIn).includes(ip), name: loggedIn[ip], orderList: list });
-})
-app.post("/login", async function (req, res) {
-    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    await client.connect()
-    const db = client.db('Restaurant').collection('User');
-    var resBody = {
-        status: "success",
-        data: {}
-    };
-    try {
-        const user = req.body["value"]
-        if (user["Username"].length > 0 && user["Password"].length > 0) {
-            const data = await db.findOne({ "Username": user["Username"] });
-            if (data !== null) {
-                if (data["Password"] === user["Password"]) {
-                    loggedIn[ip] = user["Username"];
-                    console.log(`${ip} logged in.`);
-                } else resBody["status"] = "error";
-            } else resBody["status"] = "error";
-        } else resBody["status"] = "error";
-    } catch (err) {
-        resBody["status"] = "error";
-    }
-    res.json(resBody);
-})
+// app.get("/kitchen", async function (req, res) {
+//     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+//     const list = [];
+//     try {
+//         const db = client.db('Restaurant').collection('Order');
+//         const data = await db.find( /*{ "pen": "paper" } simulate 0 result*/).forEach(function (obj) {
+//             list.push(obj);
+//         })
+//         list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
+//         orderNo = list[0].order;
+//     } catch (err) {
+//         orderNo = -1;
+//     }
+//     res.render('kitchen.ejs', { isLoggedIn: Object.keys(loggedIn).includes(ip), name: loggedIn[ip], orderList: list });
+// })
+// app.post("/login", async function (req, res) {
+//     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+//     await client.connect()
+//     const db = client.db('Restaurant').collection('User');
+//     var resBody = {
+//         status: "success",
+//         data: {}
+//     };
+//     try {
+//         const user = req.body["value"]
+//         if (user["Username"].length > 0 && user["Password"].length > 0) {
+//             const data = await db.findOne({ "Username": user["Username"] });
+//             if (data !== null) {
+//                 if (data["Password"] === user["Password"]) {
+//                     loggedIn[ip] = user["Username"];
+//                     console.log(`${ip} logged in.`);
+//                 } else resBody["status"] = "error";
+//             } else resBody["status"] = "error";
+//         } else resBody["status"] = "error";
+//     } catch (err) {
+//         resBody["status"] = "error";
+//     }
+//     res.json(resBody);
+// })
 
-app.post("/logout", async function (req, res) {
-    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    var resBody = {
-        status: "success",
-        data: {}
-    };
-    delete loggedIn[ip]
-    console.log(`${ip} logged out.`)
-    res.json(resBody);
-})
+// app.post("/logout", async function (req, res) {
+//     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+//     var resBody = {
+//         status: "success",
+//         data: {}
+//     };
+//     delete loggedIn[ip]
+//     console.log(`${ip} logged out.`)
+//     res.json(resBody);
+// })
 
-app.post("/submit", async function(req, res) {
-    await client.connect()
-    const db = client.db('Restaurant').collection('Order');
-    var resBody = {
-        status: "success",
-        data: {}
-    };
-    try {
-        if (orderNo === -1) {
-            try {
-                const list = [];
-                const data = await db.find().forEach(function(obj) {
-                    list.push(obj);
-                })
-                list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
-                orderNo = list[0].order;
-            } catch (err) {
-                orderNo = 1
-            }
-        }
-        const order = req.body["out"]
-        order["order"] = ++orderNo;
-        await db.insertOne(order);
-    } catch (err) {
-        resBody["status"] = "error";
-    }
-    res.json(resBody);
-})
+// app.post("/submit", async function(req, res) {
+//     await client.connect()
+//     const db = client.db('Restaurant').collection('Order');
+//     var resBody = {
+//         status: "success",
+//         data: {}
+//     };
+//     try {
+//         if (orderNo === -1) {
+//             try {
+//                 const list = [];
+//                 const data = await db.find().forEach(function(obj) {
+//                     list.push(obj);
+//                 })
+//                 list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
+//                 orderNo = list[0].order;
+//             } catch (err) {
+//                 orderNo = 1
+//             }
+//         }
+//         const order = req.body["out"]
+//         order["order"] = ++orderNo;
+//         await db.insertOne(order);
+//     } catch (err) {
+//         resBody["status"] = "error";
+//     }
+//     res.json(resBody);
+// })
 
-app.post("/checkout", async function (req, res) {
-    await client.connect()
-    const db = client.db('Restaurant').collection('Order');
-    var resBody = {
-        status: "success",
-        data: {}
-    };
-    try {
-        db.drop();
-        client.db('Restaurant').createCollection('Order');
-        console.log("remove success");
-    } catch (err) {
-        resBody["status"] = "error";
-    }
-    res.json(resBody);
-    res.render('list.ejs');
-})
+// app.post("/checkout", async function (req, res) {
+//     await client.connect()
+//     const db = client.db('Restaurant').collection('Order');
+//     var resBody = {
+//         status: "success",
+//         data: {}
+//     };
+//     try {
+//         db.drop();
+//         client.db('Restaurant').createCollection('Order');
+//         console.log("remove success");
+//     } catch (err) {
+//         resBody["status"] = "error";
+//     }
+//     res.json(resBody);
+//     res.render('list.ejs');
+// })
 
-app.post("/changeStatus", async function (req, res) {
-    await client.connect()
-    const db = client.db('Restaurant').collection('Order');
-    var resBody = {
-        status: "success",
-        data: {}
-    };
-    console.log(req.body);
-    try {
-        const order = req.body["out"]
-        await db.updateOne({ "order": order["order"] }, { $set: { status: order["status"] } })
-    } catch (err) {
-        resBody["status"] = "error";
-    }
-    res.json(resBody);
-})
+// app.post("/changeStatus", async function (req, res) {
+//     await client.connect()
+//     const db = client.db('Restaurant').collection('Order');
+//     var resBody = {
+//         status: "success",
+//         data: {}
+//     };
+//     console.log(req.body);
+//     try {
+//         const order = req.body["out"]
+//         await db.updateOne({ "order": order["order"] }, { $set: { status: order["status"] } })
+//     } catch (err) {
+//         resBody["status"] = "error";
+//     }
+//     res.json(resBody);
+// })
 
-app.post("/cancel", async function(req, res) {
-    await client.connect()
-    const db = client.db('Restaurant').collection('Order');
-    var resBody = {
-        status: "success",
-        data: {}
-    };
-    try {
-        const order = req.body["out"]
-        await db.deleteOne({ "order": order["order"] })
-    } catch (err) {
-        resBody["status"] = "error";
-    }
-    res.json(resBody);
-})
+// app.post("/cancel", async function(req, res) {
+//     await client.connect()
+//     const db = client.db('Restaurant').collection('Order');
+//     var resBody = {
+//         status: "success",
+//         data: {}
+//     };
+//     try {
+//         const order = req.body["out"]
+//         await db.deleteOne({ "order": order["order"] })
+//     } catch (err) {
+//         resBody["status"] = "error";
+//     }
+//     res.json(resBody);
+// })
 
-app.listen('3000', function () {
-    console.log("server start at port 3000")
-})
+// app.listen('3000', function () {
+//     console.log("server start at port 3000")
+// })
 
 document.getElementById('submit').disabled = true;
 var foodList = [];
@@ -336,21 +336,6 @@ async function submit(){
     $('.modal').modal('hide');
 }
 
-function searchFood() {
-    var input, filter, list, a;
-    input = document.getElementById("searchBar");
-    filter = input.value.toUpperCase();
-    list = document.getElementsByClassName("row mod");
-    console.log(list.length);
-    for (let i = 0; i < list.length; i++) {
-        a = list[i].children[0].children[0].innerHTML;
-        if (a.toUpperCase().indexOf(filter) > -1) {
-            list[i].style.display = "";
-        } else {
-            list[i].style.display = "none"
-        }
-    }
-}
 
 function addOrder(Id, name, request, qt){
     
@@ -434,46 +419,62 @@ async function pushToDatabase(event) {
         alert(err)
     }
 }
-async function changeStatus(order, status) {
-    try {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", `/changeStatus`);
-        out = { "order": order, "status": status }
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onload = function() {
-            var response = JSON.parse(xhr.response);
-            if (response["status"] === "success") {
-                console.log("ok");
-            } else {
-                alert("epic fail")
-            }
-        };
-        xhr.send(JSON.stringify({ out }));
-    } catch (err) {
-        alert(err)
+// async function changeStatus(order, status) {
+//     try {
+//         var xhr = new XMLHttpRequest();
+//         xhr.open("POST", `/changeStatus`);
+//         out = { "order": order, "status": status }
+//         xhr.setRequestHeader("Accept", "application/json");
+//         xhr.setRequestHeader("Content-Type", "application/json");
+//         xhr.onload = function() {
+//             var response = JSON.parse(xhr.response);
+//             if (response["status"] === "success") {
+//                 console.log("ok");
+//             } else {
+//                 alert("epic fail")
+//             }
+//         };
+//         xhr.send(JSON.stringify({ out }));
+//     } catch (err) {
+//         alert(err)
+//     }
+// }
+
+// async function cancel(order) {
+//     try {
+//         var xhr = new XMLHttpRequest();
+//         xhr.open("POST", `/cancel`);
+//         out = { "order": order }
+//         xhr.setRequestHeader("Accept", "application/json");
+//         xhr.setRequestHeader("Content-Type", "application/json");
+//         xhr.onload = function() {
+//             var response = JSON.parse(xhr.response);
+//             if (response["status"] === "success") {
+//                 window.location.replace("/");
+//             } else {
+//                 alert("epic fail")
+//             }
+//         };
+//         xhr.send(JSON.stringify({ out }));
+//     } catch (err) {
+//         alert(err)
+//     }
+// }
+// document.getElementById('submission-form').addEventListener('submit', pushToDatabase);
+
+function searchFood() {
+    var input, filter, list, a;
+    input = document.getElementById("searchBar");
+    filter = input.value.toUpperCase();
+    console.log(filter)
+    list = document.getElementsByClassName("row mod");
+    console.log(list.length);
+    for (let i = 0; i < list.length; i++) {
+        a = list[i].children[0].children[0].innerHTML;
+        if (a.toUpperCase().indexOf(filter) > -1) {
+            list[i].style.display = "";
+        } else {
+            list[i].style.display = "none"
+        }
     }
 }
-
-async function cancel(order) {
-    try {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", `/cancel`);
-        out = { "order": order }
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onload = function() {
-            var response = JSON.parse(xhr.response);
-            if (response["status"] === "success") {
-                window.location.replace("/");
-            } else {
-                alert("epic fail")
-            }
-        };
-        xhr.send(JSON.stringify({ out }));
-    } catch (err) {
-        alert(err)
-    }
-}
-document.getElementById('submission-form').addEventListener('submit', pushToDatabase);
-
