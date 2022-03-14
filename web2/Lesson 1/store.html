@@ -1,48 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>The Generics | Store</title>
+        <title>Lomjom | Resturant</title>
         <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
         <link rel="stylesheet" href="styles.css" />
         <script src="store.js" async></script>
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+            .w3-bar-block .w3-bar-item {padding:20px}
+            </style>
     </head>
     <body>
-        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title" name="Fname" id="modLabel">Food name</h2>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div>
-                                <label for="recipient-name" name="Fdesc" class="col-form-label">Description:</label>
-                                <h3 id="foodDescript"></h3>
-                            </div>
-                            <div class="form-group">
-                                <label for="message-text" name="Freq" class="col-form-label">Special request:</label>
-                                <textarea class="form-control" id="message-text"></textarea>
-                            </div>
-                        </form>
-    
-                        <h2 id="foodQt"><button id="sub" onclick="substract()" class="order-qt-sub">-</button>
-                            <p name="Fqt" style="display: inline;">0</p><button id="add" onclick="addition()" class="order-qt-add">+</button></h2>
-    
-    
-                    </div>
-                    <div class="modal-footer">
-                        <button id="closeMod" onclick="closeMod()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button id="submitMod" onclick="submit()" type="button" class="btn btn-primary">Add to order</button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+
         <header class="main-header">
             <nav class="main-nav nav">
                 <section id="title">
                     <div class="topnav">
                       <nav class="navbar navbar-expand-lg navbar-dark ">
-                        <b><li><a href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li></b>
+                         <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>  
+                          <b><li><a href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li></b>
                           <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="search-container">
@@ -51,440 +29,168 @@
                                 <!-- <button id="submit" type="submit" class="btn">Submit your order</button> -->
                             </form>
                           </div>
-                        </ul>
+                        
+                   
                         </div>
                 </section>
             </nav>
             <b><h1 class="band-name band-name-large">LOMJOM</h1></b>
         </header>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
- 
-        <!-- <form>
-            <label id="number">Table no.: </label>
-            <select name="tableNo" id="sel-number">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        </form> -->
-        <!-- <div class="shop-item-details">
-            <button class="btn btn-primary shop-item-button" type="button">Table 1</button>
-        </div>
-        <div class="shop-item-details">
-            <button class="btn btn-primary shop-item-button" type="button">Table 2</button>
-        </div>
-        <div class="shop-item-details">
-            <button class="btn btn-primary shop-item-button" type="button">Table 3</button>
-        </div>
-        <div class="shop-item-details">
-            <button class="btn btn-primary shop-item-button" type="button">Table 4</button>
-        </div> -->
-    <div class="row">
-        <div id="menu" class="col col-12 col-xl-6">
-        <section class="container content-section">
-        <!-- <div style="margin: 0%;" class="container-fluid row">
-        <div class="scroll" id="foodColumn">
-            <section id="Appetizer">
+        <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+            <a href="javascript:void(0)" onclick="w3_close()"
+            class="w3-bar-item w3-button">Close Menu</a>
+            <a href="#Appetizer" onclick="w3_close()" class="w3-bar-item w3-button">Appetizer</a>
+            <a href="#Maindish" onclick="w3_close()" class="w3-bar-item w3-button">Maindish</a>
+            <a href="#Dessert" onclick="w3_close()" class="w3-bar-item w3-button">Dessert</a>
+            <a href="#Drinks" onclick="w3_close()" class="w3-bar-item w3-button">Drinks</a>
+            <a href="#cart" onclick="w3_close()" class="w3-bar-item w3-button">Cart</a>
 
-                <h2><p style="background-color:#6a7a69;">Appetizer</p></h2>
-                <br>
-                <div onclick="showModal(this.id)" id="caesar" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Fruit Salad</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">Fruit Salad</p></h2>
-                    </div>
-
-                </div>
-                <div onclick="showModal(this.id)" value="99" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Caesar Salad</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">150฿</p></h2>
-                    </div>
-                </div>
-                <div onclick="showModal(this.id)" value="79" id="roll" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Salmon Salad</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">120฿</p></h2>
-                    </div>
-                </div>
-                <div onclick="showModal(this.id)" value="179" id="chip" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Corn Soup</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">120฿</p></h2>
-                    </div>
-                </div>
-
-            </section>
-            <section id="MainDish">
-
-                <h2><p style="background-color:#6a7a69;">Main Dish</p></h2>
-                <br>
-                <div onclick="showModal(this.id)" value="199" id="blt" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Salmon steak</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">199฿</p></h2>
-                    </div>
-              
-                </div>
-                <div onclick="showModal(this.id)" value="299" id="pizza" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Hamburger</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">299฿</p></h2>
-                    </div>
+          </nav>
+   
     
-                </div>
-                <div onclick="showModal(this.id)" value="239" id="porkchop" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Beaf Wellington</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">239฿</p></h2>
-                    </div>
-
-         
-
-                </div>
-                <div onclick="showModal(this.id)" value="229" id="spaghetti" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Spaghetti</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">229฿</p></h2>
-                    </div>
-
-                </div>
-            </section>
-            <section id="Dessert">
-
-                <h2><p style="background-color:#6a7a69;">Dessert</p></h2>
-                <br>
-                <div onclick="showModal(this.id)" value="139" id="tiramisu" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Strawberry Shortcake</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">140฿</p></h2>
-                    </div>
-
-                </div>
-                <div onclick="showModal(this.id)" value="129" id="cheeseCake" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Ice-cream sundae</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">149฿</p></h2>
-                    </div>
-                
-
-                </div>
-                <div onclick="showModal(this.id)" value="199" id="toast" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Bingso</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">199฿</p></h2>
-                    </div>
-                   
-
-            </section>
-            <section id="Drink">
-
-                <h2><p style="background-color:#6a7a69;">Drink</p></h2>
-                <br>
-                <div onclick="showModal(this.id)" value="69" id="coffee" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Cocktail</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">69฿</p></h2>
-                    </div>
-                    
-
-                </div>
-                <div onclick="showModal(this.id)" value="29" id="coke" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal">
-                    <div class="food col">
-
-                        <h2><p style="background-color:#6a7a69;">Coke</p></h2>
-                    </div>
-                    <div class="price col">
-
-                        <h2><p style="background-color:#6a7a69;">29฿</p></h2>
-                    </div>
-           
-                </div>
-                <div onclick="showModal(this.id)" value="59" id="soda" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal" ">
-                    <div class ="food col ">
-
-                        <h2><p style="background-color:#6a7a69;">Orange soda</p></h2>
-                    </div>
-                    <div class ="price col ">
-
-                        <h2><p style="background-color:#6a7a69;">59</p></h2>
-                    </div>
-            
-                </div>
-                <div onclick="showModal(this.id)" value="19" id = "water " class = "row mod " role="button" data-toggle="modal " data-target="#exampleModal "">
-                    <div class="food col">
-                        
-                        <h2><p style="background-color:#6a7a69;">Water</p></h2>
-                    </div>
-                    <div class="price col">
-                        
-                        <h2><p style="background-color:#6a7a69;">19฿</p></h2>
-                    </div>
     
+        
+        <section id = Appetizer>
+            <section class="container content-section">
+        <b><h2 class="section-header">Appetizer</h2></b>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Fruit Salad</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Fruit Salad - Best Easy Recipe!.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">150 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                 </div>
-            </section>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Caesar Salad</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Homemade Creamy Caesar Salad Dressing.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">150 Bath</span>
+                    <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Salmon Salad</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Smoked Salmon Salad.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">200 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Mushroom Soup</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Creamy Mushroom Soup Recipe.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">120 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Corn Soup</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Hearty Homemade Corn Chowder - The Chunky Chef.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">100 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Garlic Bread</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Easy Homemade Garlic Bread.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">50 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
             </div>
         </div>
-        </section>
-        </div>
-    </div> -->
-        <div class="scroll" id="foodColumn">
-        <section class="container content-section">
-           
-
-                <b><h2 class="section-header">Appetizer</h2></b>
-            
-            <div class="shop-items">
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" id="caesar" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <span class="shop-item-title">Fruit Salad</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Fruit Salad - Best Easy Recipe!.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">150 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="150" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <span class="shop-item-title">Caesar Salad</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Homemade Creamy Caesar Salad Dressing.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">150 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="200" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                    <div class="food col">
-                    <span class="shop-item-title">Salmon Salad</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Smoked Salmon Salad.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">200 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="120" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <span class="shop-item-title">Mushroom Soup</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Creamy Mushroom Soup Recipe.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">120 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="100" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <span class="shop-item-title">Corn Soup</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Hearty Homemade Corn Chowder - The Chunky Chef.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">100 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="50" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <span class="shop-item-title">Garlic Bread</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Easy Homemade Garlic Bread.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">50 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <section class="container content-section">
-            <b><h2 class="section-header">Main dish</h2></b>
-            <div class="shop-items">
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="150" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <span class="shop-item-title">Salmon Steak</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Maple-Miso Dijon Salmon.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">150 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="150" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <b><span class="shop-item-title">Hamburgers</span></b></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/The Secrets To Making The BEST Homemade Grilled Hamburgers.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">150 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="200" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <b><span class="shop-item-title">Meat Steak</span></b></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/¦-¦¦8G-+¦.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">200 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <section class="container content-section">
-            <b><h2 class="section-header">Dessert</h2></b>
-            <div class="shop-items">
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="150" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <span class="shop-item-title">Fruit Salad</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Ice Cream Sundae.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">150 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="150" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <b><span class="shop-item-title">Strawberry Shortcake</span></b></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/The Ultimate Strawberry Shortcake Cheesecake Recipe.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">150 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <section class="container content-section">
-            <b><h2 class="section-header">Drinks</h2></b>
-            <div class="shop-items">
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="150" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                    <div class="food col"><span class="shop-item-title">Cranberry Gin & Tonic</span></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/Cranberry Gin & Tonic with Rosemary.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">150 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="150" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <b><span class="shop-item-title">The Mistletoe Kiss</span></b></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/The Mistletoe Kiss (Christmas Cocktail).jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">150 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <!-- <div onclick="showModal(this.id)" value="40" id="nugget" class="row mod" role="button" data-toggle="modal" data-target="#exampleModal"> -->
-                        <div class="food col">
-                    <b><span class="shop-item-title">Coke</span></b></div>
-                    <img class="shop-item-image" src="../Lesson 1/asset/This Is What Happens When You Drink a Coke ù Eat This Not That.jpg">
-                    <div class="shop-item-details">
-                        <div class="price col">
-                        <span class="shop-item-price">40 Bath</span></div>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-        </section></div>
     </section>
-</div>
-</div>
+    </section>
+    <section id = Maindish>
+         <section class="container content-section">
+        <b><h2 class="section-header">Main dish</h2></b>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Salmon Steak</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Maple-Miso Dijon Salmon.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">150 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <b><span class="shop-item-title">Hamburgers</span></b>
+                <img class="shop-item-image" src="../Lesson 1/asset/The Secrets To Making The BEST Homemade Grilled Hamburgers.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">150 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <b><span class="shop-item-title">Meat Steak</span></b>
+                <img class="shop-item-image" src="../Lesson 1/asset/¦-¦¦8G-+¦.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">200 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+    <section id = Dessert>
+<section class="container content-section">
+        <b><h2 class="section-header">Dessert</h2></b>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Fruit Salad</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Ice Cream Sundae.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">150 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <b><span class="shop-item-title">Strawberry Shortcake</span></b>
+                <img class="shop-item-image" src="../Lesson 1/asset/The Ultimate Strawberry Shortcake Cheesecake Recipe.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">150 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+    <section id = Drinks>
+         <section class="container content-section">
+        <b><h2 class="section-header">Drinks</h2></b>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Cranberry Gin & Tonic</span>
+                <img class="shop-item-image" src="../Lesson 1/asset/Cranberry Gin & Tonic with Rosemary.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">150 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <b><span class="shop-item-title">The Mistletoe Kiss</span></b>
+                <img class="shop-item-image" src="../Lesson 1/asset/The Mistletoe Kiss (Christmas Cocktail).jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">150 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <b><span class="shop-item-title">Coke</span></b>
+                <img class="shop-item-image" src="../Lesson 1/asset/This Is What Happens When You Drink a Coke ù Eat This Not That.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">40 Bath</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+   
         <br>
         <br>
         <br>
@@ -493,7 +199,8 @@
         <br>
         <br>
         <br>
-        <section class="container content-section">
+        <section id = cart>
+                  <section class="container content-section">
             <div style="margin: 0%;" class="container-fluid row">
             <h2 class="section-header">CART</h2>
             <span class="cart-table cart-header cart-column">Table</span>
@@ -531,6 +238,8 @@
             </div> -->
             <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
         </div></section>
+        </section>
+  
         <br>
         <br>
         <br>
@@ -545,7 +254,17 @@
             </nav>
             <b><h1 class="band-name band-name-large">LOMJOM</h1></b>
         </header>
-        
+           
+        <script>
+            // Script to open and close sidebar
+            function w3_open() {
+              document.getElementById("mySidebar").style.display = "block";
+            }
+             
+            function w3_close() {
+              document.getElementById("mySidebar").style.display = "none";
+            }
+            </script>
     </body>
 </html>
 
