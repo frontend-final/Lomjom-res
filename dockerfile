@@ -1,5 +1,5 @@
 From nginx:latest
 
-COPY ./Lesson1 /usr/share/nginx/html 
+COPY ./web2/Lesson1 /usr/share/nginx/html 
 
 EXPOSE 80
