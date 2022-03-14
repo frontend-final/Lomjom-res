@@ -3,8 +3,14 @@
     <head>
         <title>The Generics | Store</title>
         <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
         <link rel="stylesheet" href="styles.css" />
         <script src="store.js" async></script>
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+            .w3-bar-block .w3-bar-item {padding:20px}
+            </style>
     </head>
     <body>
 
@@ -13,16 +19,31 @@
                 <ul><b>
                     <li><a href="../Lomjom-res/index.html">HOME</a></li>
                     <li><a href="../Lomjom-res/store.html">STORE</a></li>
-                    <li><a href="#Appetizer">Appetizer</a></li>
-                    <li><a href="#Maindish">Main Dish</a></li>
-                    <li><a href="#Dessert">Dessert</a></li>
-
-                     <li><a href="#Drinks">Drinks</a></li>
-
+                 
+  <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
                 </b></ul>
             </nav>
             <b><h1 class="band-name band-name-large">LOMJOM</h1></b>
         </header>
+        <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+            <a href="javascript:void(0)" onclick="w3_close()"
+            class="w3-bar-item w3-button">Close Menu</a>
+            <a href="#Appetizer" onclick="w3_close()" class="w3-bar-item w3-button">Appetizer</a>
+            <a href="#Maindish" onclick="w3_close()" class="w3-bar-item w3-button">Maindish</a>
+            <a href="#Dessert" onclick="w3_close()" class="w3-bar-item w3-button">Dessert</a>
+            <a href="#Drinks" onclick="w3_close()" class="w3-bar-item w3-button">Drinks</a>
+
+          </nav>
+          
+          <!-- Top menu -->
+          <!-- <div class="w3-top">
+            <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+              <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
+              <div class="w3-right w3-padding-16">Mail</div>
+              <div class="w3-center w3-padding-16">My Food</div>
+            </div>
+          </div> -->
+        
         <section id = Appetizer>
                 <section class="container content-section">
             <b><h2 class="section-header">Appetizer</h2></b>
@@ -100,7 +121,7 @@
                 </div>
                 <div class="shop-item">
                     <b><span class="shop-item-title">Meat Steak</span></b>
-                    <img class="shop-item-image" src="../Lomjom-res/asset/ดาวน์โหลด.jpg">
+                    <img class="shop-item-image" src="../Lomjom-res/asset/¦-¦¦8G-+¦.jpg">
                     <div class="shop-item-details">
                         <span class="shop-item-price">200 Bath</span>
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
@@ -181,6 +202,16 @@
         </section>
         </section>
         
-        
+        <script>
+            // Script to open and close sidebar
+            function w3_open() {
+              document.getElementById("mySidebar").style.display = "block";
+            }
+             
+            function w3_close() {
+              document.getElementById("mySidebar").style.display = "none";
+            }
+            </script>
+             
     </body>
 </html>
