@@ -1,3 +1,17 @@
+// table
+var table = Number;
+if (table == 1){
+  console.log("Table 1")
+}
+else if(table == 2){
+  console.log("Table 2")
+}
+else if(table == 3){
+  console.log("Table 3")
+}
+else if(table == 4){
+  console.log("Table 4")
+}
 
 
 
