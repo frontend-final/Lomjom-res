@@ -1,0 +1,105 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  text-align: left;
+  background: #6A7A69;  
+  
+}
+#about img{
+  width: 500px;
+}
+#about .container-fluid{
+  background-color: white;
+  padding:  3% 15% 7%;
+  
+}
+#about .container-fluid h2{
+
+ padding:  3% 15% 7%;
+ font-weight: 900;
+ font-size: 3.5rem;
+ line-height: 1.5;
+ color: #6A7A69;
+ text-align: center;
+}
+#qualification img{
+  width: 500px;
+}
+#qualification .container-fluid{
+  background-color: white;
+  padding:  3% 15% 7%;
+  
+}
+#qualification .container-fluid h2{
+
+ padding:  3% 15% 7%;
+ font-weight: 900;
+ font-size: 3.5rem;
+ line-height: 1.5;
+ color: #6A7A69;
+ text-align: center;
+}
+#skill  img{
+  width: 500px;
+}
+#skill .container-fluid{
+  background-color: white;
+  padding:  3% 15% 7%;
+  
+}
+#skill .container-fluid h2{
+
+ padding:  3% 15% 7%;
+ font-weight: 900;
+ font-size: 3.5rem;
+ line-height: 1.5;
+ color: #6A7A69;
+ text-align: center;
+}
+
+#portfolio  img{
+  width: 500px;
+}
+#portfolio .container-fluid{
+  background-color: white;
+  padding:  3% 15% 7%;
+  
+}
+#portfolio .container-fluid h2{
+ padding:  3% 15% 7%;
+ font-weight: 900;
+ font-size: 3.5rem;
+ line-height: 1.5;
+ color: #6A7A69;
+ text-align: center;
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+* {box-sizing:border-box}
+
+#title a{
+  color: #6A7A69;
+}
+#title {
+  background-color: white;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
