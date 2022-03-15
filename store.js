@@ -379,7 +379,6 @@ function deleteOrder(orderID){
     }
     checkSubmit();
 }
-
 async function pushToDatabase(event) {
     event.preventDefault();
     var out2 = []
